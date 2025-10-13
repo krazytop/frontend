@@ -40,12 +40,12 @@
         </div>
       </div>
       <div class="items"><!--TODO list-->
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item0, match.version) }}" alt="Item">
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item1, match.version) }}" alt="Item">
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item2, match.version) }}" alt="Item">
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item3, match.version) }}" alt="Item">
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item4, match.version) }}" alt="Item">
-        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item5, match.version) }}" alt="Item">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item0, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item0), $event)">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item1, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item1), $event)">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item2, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item2), $event)">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item3, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item3), $event)">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item4, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item4), $event)">
+        <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.item5, match.version) }}" alt="Item" (click)="showOverlay(patchService.getLOLItemNomenclature(match.version, summonerParticipant.item5), $event)">
         <img src="{{ imageService.getLOLItemImageUrl(summonerParticipant.ward, match.version) }}" alt="Item">
       </div>
     </div>

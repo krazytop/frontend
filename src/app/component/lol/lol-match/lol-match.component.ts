@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {RIOTSummoner} from "../../../model/riot/riot-summoner.model";
 import {LOLParticipant} from "../../../model/lol/lol-participant.model";
 import {LOLMatch} from "../../../model/lol/lol-match.model";
@@ -7,6 +7,9 @@ import {RIOTImageService} from "../../../service/riot/riot-image.service";
 import {LOLMatchService} from "../../../service/lol/lol-match.service";
 import {RIOTMatch} from "../../../model/riot/riot-match.model";
 import {RIOTPatchService} from "../../../service/riot/riot-patch.service";
+import {LOLOverlayService} from "../../../service/lol/lol-overlay.service";
+import {LOLItemNomenclature} from "../../../model/lol/nomenclature/lol-item.nomenclature";
+import {LOLNomenclature} from "../../../model/lol/nomenclature/lol.nomenclature";
 
 @Component({
   selector: 'lol-match',
@@ -21,12 +24,23 @@ export class LolMatchComponent implements OnInit {
   summonerParticipant!: LOLParticipant;
   allDataIsDisplayed: boolean = false;
 
-  constructor(protected timeService: TimeService, protected imageService: RIOTImageService, private matchService: LOLMatchService, protected patchService: RIOTPatchService) {
+  constructor(protected timeService: TimeService, protected imageService: RIOTImageService, private matchService: LOLMatchService, protected patchService: RIOTPatchService, private overlayService: LOLOverlayService) {
   }
 
   ngOnInit(): void {
     this.summonerParticipant = this.matchService.getSummonerParticipant(this.match, this.summoner);
     this.match.teams = this.match.teams.sort((a,b) => a.placement! - b.placement!);
+  }
+
+  showOverlay(item: LOLNomenclature | undefined, event: MouseEvent) {
+    if (item && this.overlayService.itemOverlay.item != item) {
+      const element = event.currentTarget as HTMLElement;
+      const rect = element.getBoundingClientRect();
+      const absoluteTop = window.scrollY + rect.top;
+      const absoluteLeft = window.scrollX + rect.left;
+      const needToBeInvert = absoluteLeft > (window.innerWidth * 5 / 6);
+      this.overlayService.showItem(item, absoluteTop, absoluteLeft + (needToBeInvert ? -325 : rect.width + 5));
+    }
   }
 
   toggleShowAllMatchData() {

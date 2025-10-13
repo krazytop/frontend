@@ -52,3 +52,8 @@
     </div>
   </div>
 </div>
+<lol-item-overlay *ngIf="overlayService.itemOverlay.item"
+                  [style.top]="overlayService.itemOverlay.top + 'px'"
+                  [style.left]="overlayService.itemOverlay.left + 'px'"
+                  [itemOverlay]="overlayService.itemOverlay">
+</lol-item-overlay>

@@ -74,6 +74,7 @@ import { DestinyNodeResultsComponent } from './component/destiny/destiny-node-re
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpLoaderFactory} from "./service/language.service";
 import { LolArenaCompletionComponent } from './component/lol/lol-stats/lol-arena-completion/lol-arena-completion.component';
+import { LolItemOverlayComponent } from './component/lol/lol-item-overlay/lol-item-overlay.component';
 
 @NgModule({
   declarations: [
@@ -142,7 +143,8 @@ import { LolArenaCompletionComponent } from './component/lol/lol-stats/lol-arena
     DestinyRewardComponent,
     DestinyGuardianRanksComponent,
     DestinyNodeResultsComponent,
-    LolArenaCompletionComponent
+    LolArenaCompletionComponent,
+    LolItemOverlayComponent
   ],
     imports: [
         BrowserModule,

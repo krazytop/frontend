@@ -15,3 +15,8 @@
 .background-color-remake {
   background-color: #4f4f4f;
 }
+
+lol-item-overlay {
+  position: absolute;
+  z-index: 100;
+}

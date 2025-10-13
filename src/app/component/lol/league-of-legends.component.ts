@@ -6,6 +6,7 @@ import {RIOTMetadataService} from "../../service/riot/riot-metadata.service";
 import {RIOTMetadata} from "../../model/riot/riot-metadata.model";
 import {RIOTMatch} from "../../model/riot/riot-match.model";
 import {RIOTPatchService} from "../../service/riot/riot-patch.service";
+import {LOLOverlayService} from "../../service/lol/lol-overlay.service";
 
 @Component({
   selector: 'league-of-legends',
@@ -23,7 +24,7 @@ export class LeagueOfLegendsComponent implements OnInit {
   protected matches: RIOTMatch[] = [];
   protected metadata: RIOTMetadata | undefined;
 
-  constructor(private summonerService: RIOTSummonerService, private route: ActivatedRoute, private metadataService: RIOTMetadataService, private patchService: RIOTPatchService) {
+  constructor(private summonerService: RIOTSummonerService, private route: ActivatedRoute, private metadataService: RIOTMetadataService, private patchService: RIOTPatchService, protected overlayService: LOLOverlayService) {
   }
 
   async ngOnInit() {

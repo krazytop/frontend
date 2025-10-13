@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {DestinyItemModel} from "../../model/destiny/destiny-item.model";
 import {of} from "rxjs";
 import {delay} from "rxjs/operators";
-import {DestinyStatNomenclature} from "../../model/destiny/nomenclature/destiny-stat.nomenclature";
 import {DestinyItemOverlayModel} from "../../model/destiny/destiny-item-overlay.model";
 
 @Injectable({ providedIn: 'root' })

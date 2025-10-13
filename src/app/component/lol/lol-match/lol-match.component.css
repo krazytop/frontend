@@ -219,6 +219,7 @@ hr {
   border-bottom-right-radius: 10px;
   width: 101%;
   position: relative;
+  cursor: pointer;
 }
 
 .team-data {
