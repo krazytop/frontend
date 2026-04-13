@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HTTPRequestService} from "../../config/http-request.service";
 import {environment} from "../../../environments/environment";
-import {RIOTRank} from "../../model/riot/riot-rank.model";
 import {RIOTBoard} from "../../model/riot/riot-board.model";
 import {RIOTSummoner} from "../../model/riot/riot-summoner.model";
 
@@ -25,7 +24,7 @@ export class RIOTBoardService {
   }
 
   async addSummonerToBoard(boardId: string, region: string, tag: string, name: string, isLOL: boolean) {
-    const response = await fetch(`${environment.apiURL}${isLOL ? 'lol' : 'tft'}/board/${boardId}/add/${region}/${tag}/${name}`,
+    const response = await fetch(`${environment.apiURL}${isLOL ? 'lol' : 'tft'}/board/${boardId}/add/${tag}/${name}`,
       {headers: HTTPRequestService.getBackendHeaders(), method: 'POST'});
     return await this.httpRequestService.hasResponse(response) ? await response.json() as RIOTSummoner : undefined;
   }
